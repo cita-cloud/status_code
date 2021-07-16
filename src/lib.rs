@@ -65,35 +65,13 @@ pub enum Status {
     ProposlProofError = 200,
 }
 
-impl ::std::error::Error for Status {}
-
 impl ::std::fmt::Display for Status {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        match self {
-            Status::Success => write!(f, "Success"),
-            Status::ConvertIntError => write!(f, "Convert int to Status err"),
-            Status::MisbehaveNode => write!(f, "Node already in misbehave list"),
-            Status::BannedNode => write!(f, "Node already in ban list"),
-            Status::NoProvideAddress => write!(f, "No correct address provide"),
-            Status::NoBlock => write!(f, "Not get the block"),
-            Status::NoneProposal => write!(f, "Proposal should not be none"),
-            Status::NoneBlockBody => write!(f, "BlockBody should not be None"),
-            Status::NoneBlockHeader => write!(f, "BlockHeader should not be None"),
-            Status::EarlyStatus => write!(f, "receive early status from same node"),
-            Status::EncodeError => write!(f, "Proto struct encode error"),
-            Status::DecodeError => write!(f, "Proto struct decode error"),
-            Status::NoCandidate => write!(f, "No candidate block"),
-            Status::ProposalTooHigh => write!(f, "Proposal height is higher than current height"),
-            Status::ProposalTooLow => write!(f, "Proposal height is lower than current height"),
-            Status::ProposalCheckError => write!(f, "Proposal check error"),
-            Status::NoForkTree => write!(f, "Fork tree no block"),
-            Status::DupTransaction => write!(f, "Found dup transaction"),
-            Status::InternalError => write!(f, "Internal Status"),
-            Status::ExpectError => write!(f, "Expect error"),
-            Status::ProposlProofError => write!(f, "check proposal proof error"),
-        }
+        write!(f, "{:?}", self)
     }
 }
+
+impl ::std::error::Error for Status {}
 
 macro_rules! impl_int_from_status {
     ($myty : ty) => {
