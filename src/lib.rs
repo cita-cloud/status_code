@@ -15,7 +15,7 @@
 use num_derive::FromPrimitive;
 
 /// The response status
-#[derive(Debug, Clone, Copy, PartialEq, FromPrimitive)]
+#[derive(Debug, Clone, Copy, Eq, PartialEq, FromPrimitive)]
 pub enum Status {
     /// Success: 0
     Success = 0,
