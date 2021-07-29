@@ -27,24 +27,48 @@ pub enum Status {
     MisbehaveNode = 100,
     /// node in ban list
     BannedNode,
+    /// address not consistent with record origin
+    AddressOriginCheckError,
+    /// provide address len is not 20
+    ProvideAddressError,
     /// message not provide address
     NoProvideAddress,
     /// not get the block
     NoBlock,
+    /// not get the proof
+    NoProof,
+    /// not get height of block which wrap tx
+    NoTxHeight,
+    /// not get tx index
+    NoTxIndex,
+    /// not get transaction
+    NoTransaction,
+    /// not get the block height base on hash
+    NoBlockHeight,
+    /// not get the block hash base on height
+    NoBlockHash,
     /// proposal is none
     NoneProposal,
     /// block body is none
     NoneBlockBody,
     /// block header is none
     NoneBlockHeader,
+    /// chain status is none
+    NoneChainStatus,
     /// early status received
     EarlyStatus,
+    /// store data error
+    StoreError,
+    /// execute error
+    ExecuteError,
     /// proto struct encode error
     EncodeError,
     /// proto struct encode error
     DecodeError,
     /// no candidate block
     NoCandidate,
+    /// not get early status
+    NoEarlyStatus,
     /// fork tree no block
     NoForkTree,
     /// find dup transaction
@@ -55,10 +79,23 @@ pub enum Status {
     ProposalTooLow,
     /// proposal check error
     ProposalCheckError,
+    /// consensus check proposal error
+    ConsensusProposalCheckError,
+    /// block hash check error
+    BlockCheckError,
+    /// the sig of chain status init check error
+    CSISigCheckError,
+    /// chain version or chain id check error
+    VersionOrIdCheckError,
+    /// hash check error
+    HashCheckError,
+    /// hash len is not correct
+    HashLenError,
+    /// signature len is not correct
+    SigLenError,
     /// internal error, todo
     InternalError,
-    /// other errors, todo
-    ExpectError,
+
 
     /// Consensus from 200
     /// check proposal proof error
@@ -111,12 +148,12 @@ mod tests {
     #[test]
     fn it_works() {
         let num: u32 = Status::BannedNode.into();
-        assert!(num == 101);
+        assert_eq!(num, 101);
 
-        let s = Status::from(102 as u64);
-        assert!(Status::NoProvideAddress == s);
+        let s = Status::from(104 as u64);
+        assert_eq!(Status::NoProvideAddress, s);
 
         let s = Status::from(65535 as u16);
-        assert!(Status::ConvertIntError == s);
+        assert_eq!(Status::ConvertIntError, s);
     }
 }
