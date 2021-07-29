@@ -14,9 +14,9 @@
 
 use num_derive::FromPrimitive;
 
-/// The response status
+/// The response status code
 #[derive(Debug, Clone, Copy, Eq, PartialEq, FromPrimitive)]
-pub enum Status {
+pub enum StatusCode {
     /// Success: 0
     Success = 0,
     /// Convert int to status Error
@@ -99,21 +99,21 @@ pub enum Status {
 
     /// Consensus from 200
     /// check proposal proof error
-    ProposlProofError = 200,
+    ProposalProofError = 200,
 }
 
-impl ::std::fmt::Display for Status {
+impl ::std::fmt::Display for StatusCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "{:?}", self)
     }
 }
 
-impl ::std::error::Error for Status {}
+impl ::std::error::Error for StatusCode {}
 
 macro_rules! impl_int_from_status {
     ($myty : ty) => {
-        impl From<Status> for $myty {
-            fn from(v: Status) -> Self {
+        impl From<StatusCode> for $myty {
+            fn from(v: StatusCode) -> Self {
                 v as $myty
             }
         }
@@ -127,10 +127,10 @@ impl_int_from_status!(u128);
 
 macro_rules! impl_status_from_int {
     ($int_t : ty,$from_int :ident) => {
-        impl From<$int_t> for Status {
+        impl From<$int_t> for StatusCode {
             fn from(v: $int_t) -> Self {
                 let s = num::FromPrimitive::$from_int(v);
-                s.unwrap_or(Status::ConvertIntError)
+                s.unwrap_or(StatusCode::ConvertIntError)
             }
         }
     };
@@ -143,17 +143,17 @@ impl_status_from_int!(u128, from_u128);
 
 #[cfg(test)]
 mod tests {
-    use crate::Status;
+    use crate::StatusCode;
 
     #[test]
     fn it_works() {
-        let num: u32 = Status::BannedNode.into();
+        let num: u32 = StatusCode::BannedNode.into();
         assert_eq!(num, 101);
 
-        let s = Status::from(104 as u64);
-        assert_eq!(Status::NoProvideAddress, s);
+        let s = StatusCode::from(104 as u64);
+        assert_eq!(StatusCode::NoProvideAddress, s);
 
-        let s = Status::from(65535 as u16);
-        assert_eq!(Status::ConvertIntError, s);
+        let s = StatusCode::from(65535 as u16);
+        assert_eq!(StatusCode::ConvertIntError, s);
     }
 }
