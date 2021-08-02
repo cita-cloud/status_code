@@ -21,6 +21,8 @@ pub enum StatusCode {
     Success = 0,
     /// Convert int to status Error
     ConvertIntError,
+    /// status code is none
+    NoneStatusCode,
 
     /// controller error, start from 100
     /// node in misbehave list
@@ -96,10 +98,19 @@ pub enum StatusCode {
     /// internal error, todo
     InternalError,
 
-
     /// Consensus from 200
     /// check proposal proof error
     ProposalProofError = 200,
+
+    /// Kms from 300
+    /// Kms server not ready
+    KmsServerNotReady = 300,
+    /// hash result is none
+    NoneHashResult,
+
+    /// Network from 400
+    /// Network server not ready
+    NetworkServerNotReady = 400,
 }
 
 impl ::std::fmt::Display for StatusCode {
