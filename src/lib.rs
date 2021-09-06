@@ -152,6 +152,12 @@ impl_status_from_int!(u32, from_u32);
 impl_status_from_int!(u64, from_u64);
 impl_status_from_int!(u128, from_u128);
 
+impl From<cita_cloud_proto::common::StatusCode> for StatusCode {
+    fn from(status: cita_cloud_proto::common::StatusCode) -> Self {
+        StatusCode::from(status.code)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::StatusCode;
@@ -166,5 +172,9 @@ mod tests {
 
         let s = StatusCode::from(65535 as u16);
         assert_eq!(StatusCode::ConvertIntError, s);
+
+        let status = cita_cloud_proto::common::StatusCode { code: 0 };
+        let s = StatusCode::from(status);
+        assert_eq!(StatusCode::Success, s);
     }
 }
