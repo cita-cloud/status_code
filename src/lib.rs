@@ -95,12 +95,15 @@ pub enum StatusCode {
     HashLenError,
     /// signature len is not correct
     SigLenError,
+    /// the node in sync mode
+    NodeInSyncMode,
     /// internal error, todo
     InternalError,
 
     /// Consensus from 200
     /// check proposal proof error
-    ProposalProofError = 200,
+    ConsensusServerNotReady = 200,
+    ProposalProofError,
 
     /// Kms from 300
     /// Kms server not ready
