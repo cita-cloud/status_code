@@ -23,6 +23,8 @@ pub enum StatusCode {
     ConvertIntError,
     /// status code is none
     NoneStatusCode,
+    /// fate error
+    FatalError,
 
     /// controller error, start from 100
     /// node in misbehave list
@@ -57,6 +59,14 @@ pub enum StatusCode {
     NoneBlockHeader,
     /// chain status is none
     NoneChainStatus,
+    /// transaction's witness is none
+    NoneWitness,
+    /// transaction is none
+    NoneTransaction,
+    /// utxo is none
+    NoneUtxo,
+    /// raw tx is none
+    NoneRawTx,
     /// early status received
     EarlyStatus,
     /// store data error
@@ -95,8 +105,36 @@ pub enum StatusCode {
     HashLenError,
     /// signature len is not correct
     SigLenError,
+    /// signature check error
+    SigCheckError,
     /// the node in sync mode
     NodeInSyncMode,
+    /// Dup tx in history
+    HistoryDupTx,
+    /// emergency brake
+    EmergencyBrake,
+    /// auth check tx's version error
+    InvalidVersion,
+    /// auth check tx's to error
+    InvalidTo,
+    /// auth check tx's nonce error
+    InvalidNonce,
+    /// auth check tx's valid until block error
+    InvalidValidUntilBlock,
+    /// auth check tx's value error
+    InvalidValue,
+    /// auth check tx's chain id error
+    InvalidChainId,
+    /// auth limit utxo's witness only one
+    InvalidWitness,
+    /// auth check utxo's lock id error
+    InvalidLockId,
+    /// auth check utxo's pre tx hash error
+    InvalidPreHash,
+    /// auth check send is not admin
+    AdminCheckError,
+    /// network msg's module not controller
+    ModuleNotController,
     /// internal error, todo
     InternalError,
 
@@ -114,6 +152,24 @@ pub enum StatusCode {
     /// Network from 400
     /// Network server not ready
     NetworkServerNotReady = 400,
+
+    /// executor from 500
+    /// Executor server not ready
+    ExecuteServerNotReady = 500,
+
+    /// storage from 600
+    /// storage server not ready
+    StorageServerNotReady = 600,
+}
+
+impl StatusCode {
+    pub fn is_success(&self) -> Result<(), StatusCode> {
+        if self != &StatusCode::Success {
+            Err(*self)
+        } else {
+            Ok(())
+        }
+    }
 }
 
 impl ::std::fmt::Display for StatusCode {
@@ -158,6 +214,14 @@ impl_status_from_int!(u128, from_u128);
 impl From<cita_cloud_proto::common::StatusCode> for StatusCode {
     fn from(status: cita_cloud_proto::common::StatusCode) -> Self {
         StatusCode::from(status.code)
+    }
+}
+
+impl Into<cita_cloud_proto::common::StatusCode> for StatusCode {
+    fn into(self) -> cita_cloud_proto::common::StatusCode {
+        cita_cloud_proto::common::StatusCode {
+            code: self.into()
+        }
     }
 }
 
