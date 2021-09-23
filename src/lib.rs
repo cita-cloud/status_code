@@ -219,9 +219,7 @@ impl From<cita_cloud_proto::common::StatusCode> for StatusCode {
 
 impl Into<cita_cloud_proto::common::StatusCode> for StatusCode {
     fn into(self) -> cita_cloud_proto::common::StatusCode {
-        cita_cloud_proto::common::StatusCode {
-            code: self.into()
-        }
+        cita_cloud_proto::common::StatusCode { code: self.into() }
     }
 }
 
