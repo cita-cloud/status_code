@@ -135,12 +135,11 @@ pub enum StatusCode {
     AdminCheckError,
     /// network msg's module not controller
     ModuleNotController,
-    /// internal error, todo
-    InternalError,
 
     /// Consensus from 200
     /// check proposal proof error
     ConsensusServerNotReady = 200,
+    /// proof of proposal error
     ProposalProofError,
 
     /// Kms from 300
@@ -148,6 +147,16 @@ pub enum StatusCode {
     KmsServerNotReady = 300,
     /// hash result is none
     NoneHashResult,
+    /// kms not found account base on id
+    NotFoundAccount,
+    /// construct signature error
+    ConstructSigError,
+    /// construct key pair error
+    ConstructKeyPairError,
+    /// sign error
+    SignError,
+    /// insert account error
+    InsertAccountError,
 
     /// Network from 400
     /// Network server not ready
