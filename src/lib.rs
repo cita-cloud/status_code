@@ -69,8 +69,6 @@ pub enum StatusCode {
     NoneRawTx,
     /// early status received
     EarlyStatus,
-    /// store data error
-    StoreError,
     /// execute error
     ExecuteError,
     /// proto struct encode error
@@ -169,6 +167,20 @@ pub enum StatusCode {
     /// storage from 600
     /// storage server not ready
     StorageServerNotReady = 600,
+    /// kv not found
+    NotFound,
+    /// invalid region
+    InvalidRegion,
+    /// invalid key
+    InvalidKey,
+    /// bad region
+    BadRegion,
+    /// store data error
+    StoreError,
+    /// load data error
+    LoadError,
+    /// delete data error
+    DeleteError,
 }
 
 impl StatusCode {
