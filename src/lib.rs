@@ -163,6 +163,10 @@ pub enum StatusCode {
     /// executor from 500
     /// Executor server not ready
     ExecuteServerNotReady = 500,
+    /// internal channel disconnected
+    InternalChannelDisconnected,
+    /// same height block reenter
+    ReenterBlock,
 
     /// storage from 600
     /// storage server not ready
