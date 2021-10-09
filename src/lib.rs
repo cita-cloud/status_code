@@ -159,6 +159,14 @@ pub enum StatusCode {
     /// Network from 400
     /// Network server not ready
     NetworkServerNotReady = 400,
+    /// send message error
+    SendMsgError,
+    /// broadcast message error
+    BroadcastMsgError,
+    /// multi-addr error
+    MultiAddrParseError,
+    /// dial node failed
+    DialNodeFail,
 
     /// executor from 500
     /// Executor server not ready
