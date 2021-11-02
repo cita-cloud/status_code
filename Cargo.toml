@@ -1,5 +1,5 @@
 [package]
-name = "status_code"
+name = "cloud-code"
 version = "0.1.0"
 authors = ["jerry-yu <yubo@rivtower.com>"]
 edition = "2018"
