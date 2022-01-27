@@ -133,6 +133,8 @@ pub enum StatusCode {
     AdminCheckError,
     /// network msg's module not controller
     ModuleNotController,
+    /// wal write log error
+    WriteAheadLogError,
 
     /// Consensus from 200
     /// check proposal proof error
