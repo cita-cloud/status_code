@@ -133,8 +133,6 @@ pub enum StatusCode {
     AdminCheckError,
     /// network msg's module not controller
     ModuleNotController,
-    /// wal write log error
-    WriteAheadLogError,
 
     /// Consensus from 200
     /// check proposal proof error
@@ -175,8 +173,10 @@ pub enum StatusCode {
     ExecuteServerNotReady = 500,
     /// internal channel disconnected
     InternalChannelDisconnected,
-    /// same height block reenter
+    /// early same block reenter
     ReenterBlock,
+    /// invalid block reenter
+    ReenterInvalidBlock,
 
     /// storage from 600
     /// storage server not ready
