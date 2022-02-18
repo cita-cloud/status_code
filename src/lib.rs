@@ -167,6 +167,8 @@ pub enum StatusCode {
     MultiAddrParseError,
     /// dial node failed
     DialNodeFail,
+    // add an existed peer
+    AddExistedPeer,
 
     /// executor from 500
     /// Executor server not ready
