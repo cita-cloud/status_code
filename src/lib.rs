@@ -140,12 +140,12 @@ pub enum StatusCode {
     /// proof of proposal error
     ProposalProofError,
 
-    /// Kms from 300
-    /// Kms server not ready
-    KmsServerNotReady = 300,
+    /// Crypto from 300
+    /// Crypto server not ready
+    CryptoServerNotReady = 300,
     /// hash result is none
     NoneHashResult,
-    /// kms not found account base on id
+    /// Crypto not found account base on id
     NotFoundAccount,
     /// construct signature error
     ConstructSigError,
@@ -168,7 +168,7 @@ pub enum StatusCode {
     /// dial node failed
     DialNodeFail,
     // add an existed peer
-    AddExistedPeer
+    AddExistedPeer,
 
     /// executor from 500
     /// Executor server not ready
