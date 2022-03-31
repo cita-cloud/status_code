@@ -133,6 +133,8 @@ pub enum StatusCode {
     AdminCheckError,
     /// network msg's module not controller
     ModuleNotController,
+    /// the size of txs has exceeded package-limit
+    TransactionsExceed,
 
     /// Consensus from 200
     /// check proposal proof error
