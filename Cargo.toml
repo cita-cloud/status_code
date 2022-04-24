@@ -1,6 +1,6 @@
 [package]
 name = "cloud-code"
-version = "0.1.3"
+version = "0.2.0"
 authors = ["Yieazy <yuitta@163.com>", "jerry-yu <yubo@rivtower.com>"]
 edition = "2018"
 license = "Apache-2.0"
