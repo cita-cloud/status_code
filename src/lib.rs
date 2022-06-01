@@ -142,21 +142,15 @@ pub enum StatusCode {
     /// proof of proposal error
     ProposalProofError,
 
-    /// Kms from 300
-    /// Kms server not ready
-    KmsServerNotReady = 300,
-    /// hash result is none
-    NoneHashResult,
-    /// kms not found account base on id
-    NotFoundAccount,
+    /// Crypto from 300
+    /// Crypto server not ready
+    CryptoServerNotReady = 300,
     /// construct signature error
     ConstructSigError,
     /// construct key pair error
     ConstructKeyPairError,
     /// sign error
     SignError,
-    /// insert account error
-    InsertAccountError,
 
     /// Network from 400
     /// Network server not ready
