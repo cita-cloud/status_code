@@ -133,8 +133,8 @@ pub enum StatusCode {
     AdminCheckError,
     /// network msg's module not controller
     ModuleNotController,
-    /// the size of txs has exceeded package-limit
-    TransactionsExceed,
+    /// the quota use of tx has exceeded quota-limit
+    QuotaUsedExceed,
 
     /// Consensus from 200
     /// check proposal proof error
