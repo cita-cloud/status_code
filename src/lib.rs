@@ -145,6 +145,8 @@ pub enum StatusCode {
     /// Crypto from 300
     /// Crypto server not ready
     CryptoServerNotReady = 300,
+    /// hash result is none
+    NoneHashResult,
     /// construct signature error
     ConstructSigError,
     /// construct key pair error
