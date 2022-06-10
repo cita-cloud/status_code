@@ -1,8 +1,8 @@
 [package]
 name = "cloud-code"
-version = "0.2.1"
+version = "0.3.0"
 authors = ["Yieazy <yuitta@163.com>", "jerry-yu <yubo@rivtower.com>"]
-edition = "2018"
+edition = "2021"
 license = "Apache-2.0"
 description = "the status_code used for transfer status between cita-cloud's micro server"
 
