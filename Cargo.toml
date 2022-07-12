@@ -12,4 +12,4 @@ description = "the status_code used for transfer status between cita-cloud's mic
 num = "0.4"
 num-derive = "0.3"
 num-traits = "0.2"
-cita_cloud_proto = { branch = "upgrade-tonic-prost", git = "https://github.com/cita-cloud/cita_cloud_proto" }
+cita_cloud_proto = { git = "https://github.com/cita-cloud/cita_cloud_proto" }
