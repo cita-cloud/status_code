@@ -135,6 +135,10 @@ pub enum StatusCode {
     ModuleNotController,
     /// the quota use of tx has exceeded quota-limit
     QuotaUsedExceed,
+    /// not get the state_root
+    NoStateRoot,
+    /// block state_root check error
+    StateRootCheckError,
 
     /// Consensus from 200
     /// check proposal proof error
