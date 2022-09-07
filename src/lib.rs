@@ -139,7 +139,9 @@ pub enum StatusCode {
     NoStateRoot,
     /// block state_root check error
     StateRootCheckError,
-
+    /// update system-config error, wrong prehash or unallowed lockid
+    UpdateSystemConfigError,
+    
     /// Consensus from 200
     /// check proposal proof error
     ConsensusServerNotReady = 200,
