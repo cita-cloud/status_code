@@ -1,6 +1,6 @@
 [package]
 name = "cloud-code"
-version = "0.4.0"
+version = "0.5.1"
 authors = ["Yieazy <yuitta@163.com>", "jerry-yu <yubo@rivtower.com>"]
 edition = "2021"
 license = "Apache-2.0"
@@ -12,4 +12,4 @@ description = "the status_code used for transfer status between cita-cloud's mic
 num = "0.4"
 num-derive = "0.3"
 num-traits = "0.2"
-cita_cloud_proto = { git = "https://github.com/cita-cloud/cita_cloud_proto" }
+cita_cloud_proto = "6.6.1"
