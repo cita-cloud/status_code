@@ -141,7 +141,7 @@ pub enum StatusCode {
     StateRootCheckError,
     /// update system-config error, wrong prehash or unallowed lockid
     UpdateSystemConfigError,
-    
+
     /// Consensus from 200
     /// check proposal proof error
     ConsensusServerNotReady = 200,
@@ -258,6 +258,7 @@ impl From<cita_cloud_proto::common::StatusCode> for StatusCode {
     }
 }
 
+#[allow(clippy::from_over_into)]
 impl Into<cita_cloud_proto::common::StatusCode> for StatusCode {
     fn into(self) -> cita_cloud_proto::common::StatusCode {
         cita_cloud_proto::common::StatusCode { code: self.into() }
@@ -273,10 +274,10 @@ mod tests {
         let num: u32 = StatusCode::BannedNode.into();
         assert_eq!(num, 101);
 
-        let s = StatusCode::from(104 as u64);
+        let s = StatusCode::from(104_u64);
         assert_eq!(StatusCode::NoProvideAddress, s);
 
-        let s = StatusCode::from(65535 as u16);
+        let s = StatusCode::from(65535_u16);
         assert_eq!(StatusCode::ConvertIntError, s);
 
         let status = cita_cloud_proto::common::StatusCode { code: 0 };
